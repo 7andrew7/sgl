@@ -43,8 +43,7 @@ std::ostream& operator<<(std::ostream &out, const Graph<NodeKey> &graph){
   for (const auto &node_key : graph.GetNodes()) {
     out << node_key << ": ";
 
-    typename Graph<NodeKey>::NodeSet neighbors = graph.GetNeighbors(node_key);
-    for (const auto &neighbor : neighbors)
+    for (const auto &neighbor : graph.GetNeighbors(node_key))
       out << neighbor << " ";
 
     out << std::endl;
