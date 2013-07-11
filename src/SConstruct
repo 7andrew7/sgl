@@ -3,4 +3,4 @@ env = Environment()
 env['CCFLAGS'] = '-Wall -Wextra -Werror -pthread'
 env['CXXFLAGS'] = '-std=c++11'
 
-env.Program('a.out', ['main.cc'])
+env.Program('echo', ['echo.cc'])
