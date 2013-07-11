@@ -38,18 +38,32 @@ class Graph {
 };
 
 template<class NodeKey>
-std::ostream& operator<<(std::ostream &out, const Graph<NodeKey> &graph){
+std::ostream& operator<<(std::ostream &os, const Graph<NodeKey> &graph){
 
   for (const auto &node_key : graph.GetNodes()) {
-    out << node_key << ": ";
+    os << node_key << ": ";
 
     for (const auto &neighbor : graph.GetNeighbors(node_key))
-      out << neighbor << " ";
+      os << neighbor << " ";
 
-    out << std::endl;
+    os << std::endl;
   }
 
-  return out;
+  return os;
+}
+
+template<class NodeKey>
+std::istream& operator>>(std::istream &is, Graph<NodeKey> &graph)
+{
+  while(true) {
+    std::string source, dest;
+    is >> source >> dest;
+
+    if (!is)
+      return is;
+
+    graph.AddEdge(source, dest);
+  }
 }
 
 }

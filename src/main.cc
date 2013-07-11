@@ -1,15 +1,20 @@
 
 #include <iostream>
+#include <fstream>
 
 #include "graph.h"
 
-int main() {
+int main(int argc, const char* argv[]) {
+  std::string file_name = "../data/tiny.al";
+
+  if (argc >= 2)
+    file_name = argv[1];
+
   sgl::Graph<std::string> graph;
 
-  graph.AddEdge("1", "2");
-  graph.AddEdge("2", "3");
-  graph.AddEdge("3", "1");
-  graph.AddEdge("3", "2");
+  std::ifstream phile;
+  phile.open(file_name);
+  phile >> graph;
 
   std::cout << graph << std::endl;
 }
