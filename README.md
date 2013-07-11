@@ -1,0 +1,4 @@
+sgl
+===
+
+Simple graph library
